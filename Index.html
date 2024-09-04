@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/d8d8a8b47fd2999db090b96fe4404f4d?family=Massivertical" rel="stylesheet">
     <title>NAVIGATIOn
     </title>
 </head>
@@ -30,6 +31,50 @@
     </nav>
 
     <script src="app.js"></script>
-</body>
 
+  <div class="container">
+
+  <h1 class="lax lax_preset_fadeOut:0:0">SONOS VITAE</h1>
+
+    <div class="line lax lax_preset_fadeOut:0:0"></div>
+
+  </div>  
+
+
+  <div class="container secondary">
+    <h2>Strategic</h2>
+    <p class="subtext">Alliances</p>
+
+    <p>LIpsum</p>
+    <p>Lorem mkkmkm asasd um Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+  </div>
+  
+    <img src="green.jpg" alt="green" class="green">
+    <img src="leaves.png" alt="leaves" class="leaves">
+    <div class="cover"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
+
+    <script>
+      window.onload = function () {
+        lax.init()
+    
+        // Add a driver that we use to control our animations
+        lax.addDriver('scrollY', function () {
+          return window.scrollY
+        })
+    
+        // Add animation bindings to elements
+        lax.addElements('.selector', {
+          scrollY: {
+            translateX: [
+              ["elInY", "elCenterY", "elOutY"],
+              [0, 'screenWidth/2', 'screenWidth'],
+            ]
+          }
+        })
+      }
+    </script>
+
+</body>
 </html>
