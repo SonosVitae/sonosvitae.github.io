@@ -10,6 +10,14 @@ html, body{
 body {
     background-color: #1C2C07;
 }
+
+/* FONT */
+@font-face {
+    font-family: 'Massivertical'; /* This is the name you will use in your CSS */
+    src: url('Massivertical.woff2') format('woff2'),
+}
+
+
 nav{
     display: flex;
     justify-content: space-between;
