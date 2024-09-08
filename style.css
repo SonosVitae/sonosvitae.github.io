@@ -13,7 +13,7 @@ body {
 
 /* FONT */
 @font-face {
-    font-family: 'Massivertical'; /* This is the name you will use in your CSS */
+    font-family: 'Massivertical';
     src: url('Massivertical.woff2') format('woff2'),
 }
 
@@ -147,7 +147,7 @@ nav{
         text-align: center;
         margin-top: 1em;
         font-weight: normal;
-        font-size: 7em;
+        font-size: 10em;
         line-height: 1.5em;
         font-family: "Massivertical";
         color: #b2c982;
@@ -183,15 +183,19 @@ nav{
 }
 
 h2 {
-    color: rgb(112, 112, 112);
-    font-size: 3em;
+    color: rgb(160, 195, 155);
+    font-size: 5em;
     margin: 0;
     width: 100%;
+    text-align: center;
+    font-family: poppins;
+
 }
 .subtext {
     margin-top: 0;
     font-size: 1.em;
     text-transform: uppercase;
+    text-align: center;
 }
 .secondary {
     margin-top: -6em;
@@ -234,7 +238,7 @@ h2 {
 box-shadow: 0px -7px 38px 26px rgba(28, 44, 7, 1);
 }
 
-/* For screens 1024px or smaller (iPad Landscape and smaller) */
+/* iPad Landscape and smaller */
 @media only screen and (max-width: 1024px) {
     .container h1 {
         margin-top: 2em;
@@ -265,7 +269,7 @@ box-shadow: 0px -7px 38px 26px rgba(28, 44, 7, 1);
     }
 }
 
-/* For screens 853px or smaller (iPad Portrait) */
+/* iPad Portrait */
 @media only screen and (max-width: 853px) {
     .container h1 {
         margin-top: 1.5em;
@@ -279,7 +283,7 @@ box-shadow: 0px -7px 38px 26px rgba(28, 44, 7, 1);
 
 @media only screen and (max-width: 540px) {
     .container h1 {
-        font-size: 8em;  /* Reduce font size for smaller screens */
+        font-size: 8em;
         margin-top: 0.8em;
     }
     .leaves {
@@ -294,10 +298,10 @@ box-shadow: 0px -7px 38px 26px rgba(28, 44, 7, 1);
     }
 }
 
-/* For screens 514px or smaller (iPhone) */
+/* iPhone */
 @media only screen and (max-width: 514px) {
     .container h1 {
-        font-size: 7em;  /* Reduce font size for smaller screens */
+        font-size: 7em; 
         margin-top: 2em;
     }
     .leaves {
@@ -314,7 +318,7 @@ box-shadow: 0px -7px 38px 26px rgba(28, 44, 7, 1);
 
 @media only screen and (max-width: 376px) {
     .container h1 {
-        font-size: 7em;  /* Reduce font size for smaller screens */
+        font-size: 7em;
         margin-top: 1.5em;
     }
     .leaves {
