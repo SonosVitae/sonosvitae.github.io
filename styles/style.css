@@ -14,7 +14,7 @@ body {
 /* FONT */
 @font-face {
     font-family: 'Massivertical';
-    src: url('Massivertical.woff2') format('woff2'),
+    src: url('../fonts/Massivertical.woff2') format('woff2'),
 }
 
 
@@ -184,7 +184,7 @@ nav{
 
 h2 {
     color: rgb(160, 195, 155);
-    font-size: 5em;
+    font-size: 5vw;
     margin: 0;
     width: 100%;
     text-align: center;
@@ -197,10 +197,132 @@ h2 {
     text-transform: uppercase;
     text-align: center;
 }
-.secondary {
-    margin-top: -6em;
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
+.musiclist {
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 50px;
+}
+
+.music {
+    max-width:280px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.music img {
+    max-width:270px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 25px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-content: center;
+}
+
+.musiclist img:hover {
+    transition: transform 0.2s ease-in;
+}
+
+.albumname {
+    text-align: center;
+    color:rgb(160, 195, 155);
+    font-family: poppins;
+    letter-spacing: 2px;
+}
+
+li::marker {
+    content: "";
+}
+
+
+.musiclist:not(:last-child):not(:has(+ [hidden])) {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+.filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border: 0;
+    padding: 0;
+  }
+
+.filter-btn {
+    cursor: pointer;
+    text-transform: uppercase;
+    background: transparent;
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.25rem 1rem;
+    color: rgb(160, 195, 155);
+  }
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background-color: #6fa552;
+}
+
+.filter-btn.active {
+  background: rgb(51, 83, 0);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 0.5rem rgb(0 0 0 / 0.2);
+}
+
+.full-img {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.full-img img {
+    width: 90%;
+    max-width: 500px;
+    pointer-events: none;
+}
+.x {
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+.x div {
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: rgb(255, 255, 255);
+}
+.line4 {
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.line5 {
+    opacity: 0;
+}
+.line6 {
+    transform: rotate(45deg) translate(-5px,-6px);
+}
 
 .green, .leaves {
     position: absolute;
