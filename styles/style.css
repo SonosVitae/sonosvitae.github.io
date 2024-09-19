@@ -218,6 +218,7 @@ h2 {
 
 .music {
     max-width:280px;
+    width: 90%;
     margin: 0px;
     padding: 0px;
 }
@@ -230,8 +231,6 @@ h2 {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    justify-content: center;
-    align-content: center;
 }
 
 .musiclist img:hover {
