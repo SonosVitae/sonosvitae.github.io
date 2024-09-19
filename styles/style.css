@@ -209,22 +209,21 @@ h2 {
 }
 
 .musiclist {
-    width: 78%;
-    margin: 100px auto 50px;
+    width: 72%;
+    margin: clamp(75px, 20vw, 100px)  auto 10vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 50px;
+    justify-items: center;
 }
 
 .music {
-    max-width:280px;
     width: 90%;
     margin: 0px;
     padding: 0px;
 }
 
 .music img {
-    max-width:270px;
     width: 100%;
     cursor: pointer;
     border-radius: 25px;
@@ -435,6 +434,10 @@ li::marker {
     .cover {
         top: 110vh;
     }
+    .musiclist {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin: clamp(50px, 10vw, 75px)  auto 2vw;
+    }  
 }
 
 @media only screen and (max-width: 376px) {
