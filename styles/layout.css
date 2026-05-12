@@ -26,13 +26,13 @@
 
 .container p {
     line-height: 1.5em;
-    color: rgb(194, 194, 194)
+    color: rgb(178, 201, 130)
 }
 
 .container .line {
     align-self: end;
     width: 50%;
-    border-right: 2px solid white;
+    border-right: 2px solid rgb(178, 201, 130);
     height: 20%;
     margin-bottom: 4em;
     position: relative;
@@ -45,7 +45,7 @@
     height: 0;
     border-style: solid;
     border-width: 11px 11px 0 11px;
-    border-color: white transparent transparent transparent;
+    border-color: rgb(178, 201, 130) transparent transparent transparent;
     right: -.7em;
     bottom: -2px;
 }
