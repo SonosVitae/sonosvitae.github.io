@@ -177,8 +177,8 @@
 .genre-small {
     font-size: 0.8em;
     /* Smaller than the rest */
-    color: #999;
-    /* Even more gray/faded if desired, or keep same */
+    color: inherit;
+    /* Inherit the dynamically set color */
 }
 
 /* Album Cover adjustments */

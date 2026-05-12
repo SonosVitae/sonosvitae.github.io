@@ -454,27 +454,36 @@ function openModal(album) {
                     return;
                 }
                 const colorThief = new ColorThief();
-                // Get palette of 3 colors
-                const palette = colorThief.getPalette(modalCover, 3);
+                // Get palette of 8 colors to find a distinctive one
+                const palette = colorThief.getPalette(modalCover, 8);
                 console.log("ColorThief Palette:", palette);
 
-                // Palette returns arrays of [r,g,b]
-                // 0 is dominant, 1 is secondary, 2 is tertiary
                 if (palette && palette.length > 1) {
-                    const secondary = palette[1]; // Use second color
+                    let dominant = palette[0];
+                    let secondary = palette[1]; // fallback
 
-                    // Mix with White (50%) to brighten
-                    const r = Math.round((secondary[0] + 255) / 2);
-                    const g = Math.round((secondary[1] + 255) / 2);
-                    const b = Math.round((secondary[2] + 255) / 2);
+                    let maxDist = -1;
+                    // Find the color that is MOST different from dominant
+                    for (let i = 1; i < palette.length; i++) {
+                        let c = palette[i];
+                        let dist = Math.sqrt(Math.pow(c[0] - dominant[0], 2) + Math.pow(c[1] - dominant[1], 2) + Math.pow(c[2] - dominant[2], 2));
+                        if (dist > maxDist) {
+                            maxDist = dist;
+                            secondary = c;
+                        }
+                    }
 
-                    const secHex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-                    console.log("Brightened Secondary Hex:", secHex);
+                    // Convert to HSL to preserve exact hue but ensure vibrancy and visibility
+                    const [h, s, l] = rgbToHsl(secondary[0], secondary[1], secondary[2]);
+                    const newL = Math.max(l, 0.65); // Bright enough for dark background
+                    const newS = Math.max(s, 0.6);  // Saturated enough to pop
+                    const secColor = `hsl(${h * 360}, ${newS * 100}%, ${newL * 100}%)`;
+
+                    console.log("Distinctive Secondary Color:", secColor);
 
                     const typeGenreLabel = document.querySelector('.album-type-genre');
                     if (typeGenreLabel) {
-                        typeGenreLabel.style.color = secHex;
-                        typeGenreLabel.textContent = typeGenreLabel.textContent; // Force repaint if needed (unlikely)
+                        typeGenreLabel.style.color = secColor;
                     }
                 }
             } catch (e) {
