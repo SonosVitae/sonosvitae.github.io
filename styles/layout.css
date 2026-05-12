@@ -73,18 +73,20 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    left: 0;
     width: 100%;
     /* Changed from 100vw to prevent horizontal scroll */
     height: 100vh;
     object-fit: cover;
+    /* Fade out the bottom edge so it seamlessly disappears instead of cutting off */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
 }
 
 .green {
     background-image: url('../assets/images/green.jpg');
     background-size: cover;
     background-position: center;
-    z-index: -2;
+    z-index: -3;
     will-change: transform;
     /* Hardware acceleration */
     transform: translateZ(0);
@@ -92,14 +94,13 @@ h2 {
 
 .leaves {
     /* Image is set via HTML src */
-    z-index: -1;
+    z-index: -2;
     top: 55vh;
     will-change: transform;
     /* Hardware acceleration */
     transform: translateZ(0);
 }
 
-/* Main Body Adjustment */
 /* Main Body Adjustment */
 body {
     position: relative;
@@ -115,7 +116,7 @@ body {
     height: 100%;
     background-color: #050801;
     z-index: -5;
-    /* Behind hero images (-2 and -1) */
+    /* Behind hero images */
 }
 
 .cover {
@@ -126,14 +127,13 @@ body {
     left: 0;
     width: 100%;
     /* Extend to cover entire scrollable area from 80vh downwards */
-    /* Removed fixed height to allow growth with content */
     min-height: 100vh;
     bottom: 0px;
     z-index: -1;
 
-    /* Fade in the top edge of the cover */
-    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+    /* Fade in the top edge of the cover (fixed vh instead of % so it doesn't stretch on long pages) */
+    mask-image: linear-gradient(to bottom, transparent 0px, black 30vh);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 30vh);
 
     overflow: hidden;
 }
