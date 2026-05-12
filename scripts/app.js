@@ -417,6 +417,22 @@ function rgbToHsl(r, g, b) {
     return [h, s, l];
 }
 
+// Helper to turn URLs into clickable links safely
+function linkify(text) {
+    if (!text) return '';
+    const escapedText = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return escapedText.replace(urlRegex, function(url) {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">${url}</a>`;
+    });
+}
+
 // --- Modal Logic ---
 
 function openModal(album) {
@@ -425,8 +441,7 @@ function openModal(album) {
     if (modalTitle) modalTitle.textContent = album.title;
     if (modalArtist) modalArtist.textContent = "by " + album.artist;
     if (modalDate) modalDate.textContent = album.productionDate;
-    if (modalDescription) modalDescription.textContent = album.description;
-    if (modalDescription) modalDescription.textContent = album.description;
+    if (modalDescription) modalDescription.innerHTML = linkify(album.description);
     if (modalCover) {
         modalCover.src = album.coverUrl;
 
